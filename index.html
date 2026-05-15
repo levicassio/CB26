@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopaBolão26</title>
+
+    <!--ICONE DA ABA-->
+    <link rel="icon" href="./src/assets/images/icone.png">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <!--TIPOGRAFIA-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Secular+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!--=====HEADER=====-->
+    <header>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a id="link-palpitar"  href="palpites.html">Palpitar</a>
+            <a href="ranking.html">Ranking</a>
+        </nav>
+
+        <a href="index.html">
+            <img src="./src/assets/images/icone.png" alt="logo-cb26-header">
+        </a>
+
+        <!--VISITANTE-->
+        <div id="header-visitante">
+            <button id="btn-login">Fazer Login</button>
+        </div>
+
+        <!--LOGADO-->
+        <div id="header-logado">
+            <img id="header-foto" alt="foto do usuario">
+            <span id="header-nome"></span>
+            <button id="btn-logout">Sair</button>
+        </div>
+    </header>
+
+    <main>
+        <!--=====HERO=====-->
+        <section class="hero">
+
+            <!--VISITANTE-->
+            <div id="hero-visitante">
+                <h1>Faça seu Login</h1>
+            </div>
+
+            <!--LOGADO-->
+            <div id="hero-logado">
+                <h1>Olá,<span id="hero-nome"></span></h1>
+            </div>
+
+            <!--LADO ESQUERDO (imagem e palpite)-->
+            <div class="hero-left">
+                <img src="./src/assets/images/hero-image.png" alt="image-cb26-hero">
+                <a id="hero-btn-palpite" href="palpites.html">Fazer Palpite</a>
+            </div>
+
+            <!--LADO DIREITO (top 3 e ranking)-->
+            <div class="hero-right">
+                <h3>Trio de Ferro</h3>
+
+                <div id="top3-container"> <!--JS--> </div>
+                <a id="hero-btn-ranking" href="ranking.html">Ver Ranking</a>
+            </div>
+        </section>
+        
+        <!--=====JOGOS===== (acabou o jogo > resultado, esta acontecendo > ao vivo, caso nao começou > horario resultado em branco ate começar - somente jogos no dia)-->
+        <section class="jogos">
+            <h2>Jogos do Dia</h2>
+            <div id="jogos-hoje"> <!--JS--> </div>
+        </section>
+
+        <!--=====SOBRE O BOLÃO=====-->
+        <section id="sobre" class="sobre">
+            <H2>Copa Bolão 26</H2>
+            <p>O CB26 é um bolão da Copa do Mundo 2026
+            com ranking competitivo, sistema de pontuação,
+            badges e palpites em tempo real.</p>
+            <p>Sendo totalmente gratuito e sem nenhum tipo de premiações. Com intuito de ser usado como aprendizado, interativo e competitivo, sem quaisquer fins lucrativos.</p>
+        </section>
+
+        <!--=====REGRAS SEÇÃO=====-->
+        <section class="regras">
+
+            <!--SISTEMA DE PONTOS-->
+            <h2>Sistema de Pontuação</h2>
+
+            <table>
+                <tr>
+                    <th>Situação</th>
+                    <th>Pontos</th>
+                </tr>
+
+                <tr>
+                    <td>Placar Exato</td>
+                    <td>5</td>
+                </tr>
+
+                <tr>
+                    <td>Vencedor + gols de um time</td>
+                    <td>4</td>
+                </tr>
+
+                <tr>
+                    <td>Acertou vencedor</td>
+                    <td>3</td>
+                </tr>
+
+                <tr>
+                    <td>Acertou empate</td>
+                    <td>3</td>
+                </tr>
+
+                <tr>
+                    <td>Acertou gols de um time</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                    <td>Errou tudo</td>
+                    <td>0</td>
+                </tr>
+            </table>
+
+            <!-- EXPLICAÇÕES -->
+            <h2>Como funciona a pontuação</h2>
+
+            <div class="explicacao-pontos">
+
+                <div class="regra-item">
+                    <h4>5 pontos — Placar Exato</h4>
+                    <p>
+                    Exemplo:
+                    Você palpita Mexico 2x1 Africa do Sul.
+                    O jogo termina Mexico 2x1 Africa do Sul.
+                    Resultado: 5 pontos.
+                    </p>
+                </div>
+
+                <div class="regra-item">
+                    <h4>4 pontos — Acertou vencedor + gols de um time</h4>
+                    <p>
+                    Exemplo:
+                    Você palpita Catar 2x0 Suiça.
+                    O jogo termina Catar 2x1 Suiça.
+                    Você acertou a vitória do Catar e os 2 gols do Catar. 
+                    Se o Palpite fosse 3x1, tambem seria 4 pontos por conta do 1 da Suiça.
+                    Resultado: 4 pontos.
+                    </p>
+                </div>
+
+                <div class="regra-item">
+                    <h4>3 pontos — Acertou vencedor</h4>
+                    <p>
+                    Exemplo:
+                    Você palpita Colombia 3x1 Portugal.
+                    O jogo termina Colombia 1x0 Portugal.
+                    Você acertou apenas o vencedor. Errando os gols.
+                    Resultado: 3 pontos.
+                    </p>
+                </div>
+        
+                <div class="regra-item">
+                    <h4>3 pontos — Acertou empate</h4>
+                    <p>
+                    Exemplo:
+                    Você palpita Belgica 2x2 Egito.
+                    O jogo termina Belgica 1x1 Egito.
+                    Você acertou o empate, mas não o placar exato.
+                    Resultado: 3 pontos.
+                    </p>
+                </div>
+
+                <div class="regra-item">
+                    <h4>1 ponto — Acertou gols de um time</h4>
+                    <p>
+                    Exemplo:
+                    Você palpita Argentina 2x2 Argelia.
+                    O jogo termina Argentina 2x0 Argelia.
+                    Você acertou os gols da Argentina, mas errou o resultado.
+                    Resultado: 1 ponto.
+                    </p>
+                </div>
+
+                <div class="regra-item">
+                    <h4>0 pontos — Errou tudo</h4>
+                    <p>
+                    Exemplo:
+                    Você palpita Holanda 2x0 Suecia.
+                    O jogo termina Holanda 0x1 Suecia.
+                    Nao acertou os gols de nenhum time nem a vitoria. 
+                    Resultado: 0 pontos.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- PRORROGAÇÃO -->
+            <h2>Prorrogação</h2>
+
+            <div class="regras-prorrogacao">
+
+                <p>
+                Após o fim da fase de grupos, os jogos eliminatórios poderão ter prorrogação.
+                </p>
+
+                <p>
+                Nessas partidas haverá uma caixa abaixo do jogo escrita:
+                “Vai para prorrogação”.
+                </p>
+
+                <p>
+                Caso a caixa NÃO seja marcada, o palpite valerá apenas até os 90 minutos.
+                </p>
+
+                <p>
+                Caso a caixa seja marcada, o palpite valerá até os 120 minutos,
+                incluindo a prorrogação.
+                </p>
+
+                <p>
+                Disputas por pênaltis NÃO serão contabilizadas no bolão.
+                </p>
+
+            </div>
+
+            <!-- PRAZOS -->
+            <h2>Prazo dos Palpites</h2>
+
+            <div class="regras-palpites">
+                <p>
+                Os palpites poderão ser feitos até o início de cada jogo.
+                </p>
+
+                <p>
+                Exemplo:
+                Se a partida começa às 16h00,
+                os palpites encerram às 15h59.
+                </p>
+
+                <p>
+                Não é obrigatório palpitar todos os jogos de uma vez.
+                Você pode fazer seus palpites por partes.
+                </p>
+
+                <p>
+                Caso o jogo não seja palpitado a tempo,
+                o sistema manterá automaticamente o placar padrão de 0x0.
+                </p>
+
+                <p>
+                Dependendo do resultado real,
+                ainda será possível pontuar mesmo sem alterar o palpite.
+                </p>
+
+                <p>
+                Os jogos eliminatórios aparecerão automaticamente no site
+                assim que os confrontos forem oficialmente definidos.
+                </p>
+
+                <p>
+                Assim que estiverem disponíveis,
+                os palpites já poderão ser enviados.
+                </p>
+
+                <p>
+                Não esqueça de salvar cada palpite.
+                </p>
+
+                <p>
+                Mesmo após salvar,
+                será possível editar e salvar novamente até o horário do jogo.
+                </p>
+
+                <p>
+                Os palpites de gols vão de 0 até 15.
+                </p>
+
+                <p>
+                Caso uma seleção faça mais de 15 gols,
+                quem tiver colocado 15 para aquela seleção receberá o acerto daquele lado do placar.
+                </p>
+
+                <p>
+                A pontuação final dependerá do outro lado do placar,
+                podendo valer 5, 4, 3 ou 1 ponto.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!---=====FOOTER=====-->
+    <footer>
+
+        <div class="contato-footer">
+            <h3>Contato</h3>
+            <p>levicassio@outlook.com.br</p>
+        </div>
+
+        <div class="conteudo-footer">
+            <p>CopaBolão26</p>
+            <img src="./src/assets/images/icone.png" alt="logo-cb26-footer">
+            <p>@2026</p>
+        </div>
+
+    </footer>
+    
+    <!--=====MODAL=====-->
+    <!--MODAL LOGIN-->
+    <div id="modal-overlay"></div>
+
+    <div id="modal-login">
+
+        <h2>Login</h2>
+
+        <input id="input-email" type="email" placeholder="Seu email">
+        <input id="input-senha" type="password" placeholder="Sua senha">
+        <button id="btn-entrar">Entrar</button>
+        <button id="btn-cadastrar">Cadastrar</button>
+        <span id="msg-erro-login"></span>
+        <span id="msg-sucesso-login"></span>
+
+    </div>
+
+    <!--MODAL PERFIL HOVER-->
+    <div id="modal-perfil-hover">
+
+        <img id="perfil-hover-foto" alt="foto-participante-modal">
+        <span id="perfil-hover-nome"></span>
+        <span id="perfil-hover-pontos"></span>
+        <span id="perfil-hover-pais"></span>
+
+    </div>
+
+    <!--JAVA SCRIPT-->
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>
