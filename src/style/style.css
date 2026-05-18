@@ -3,15 +3,30 @@
    Não apagar nem renomear
    ============================================ */
 
-#header-visitante { display: flex; }
+#header-visitante { display: none; }
 #header-logado { display: none; }
-#hero-visitante { display: block; }
+#hero-visitante { display: none; }
 #hero-logado { display: none; }
 
 #modal-login {
   display: none;
   position: fixed;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   z-index: 101;
+
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+
+  flex-direction: column;
+  gap: 12px;
+
+  width: 90%;
+  max-width: 400px;
 }
 
 #modal-overlay {
@@ -21,6 +36,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.6);
   z-index: 100;
 }
 
@@ -28,11 +44,438 @@
   display: none;
   position: fixed;
   z-index: 200;
+
+  background: white;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+}
+
+#perfil-hover-foto {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.bandeira {
+  width: 50px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 
+
 /* ============================================
-   ESTILOS — PODE MEXER LIVREMENTE
+   ESTILOS 
    ============================================ */
 
-/* seu CSS aqui */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+
+  
+
+    text-decoration: none;
+    color: inherit; /*força o elemento assumir a cor de texto definida em seu elemento pai*/
+    
+    font-family: "Quicksand", sans-serif;
+  }
+
+:root {
+  --color-primary: #603e11;
+  --color-secondary: #000000;
+  --color-bg: #ffffff;
+
+  --pri-lugar: #d4af37;
+  --seg-lugar: #bfc3c9;
+  --ter-lugar: #b87333;
+  --lan-lugar: #8b1e2d;
+}  
+
+header {
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 4%;
+
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  transition: 0.5s;
+}
+
+header > nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav > a {
+  transition: 0.5s;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+#btn-login {
+  padding: 12px 24px;
+
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+
+  font-size: 20px;
+
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+#btn-logout {
+  padding: 8px 16px;
+
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+#header-logado {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.5s;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+#header-foto {
+  border-radius: 20px;
+  object-fit: cover;
+  cursor: pointer;
+  width: 40px;
+  height:40px;
+}
+
+.hero {
+  width: 100%; 
+  min-height: 80vh;
+  background: linear-gradient(to bottom, #603e11 92%, #ffffff);
+  color: var(--color-bg);
+  padding: 0px;
+  transition: 0.5s;
+}
+
+#hero-visitante,
+#hero-logado {
+  font-size: 40px;
+  height: 15vh;
+  padding: 20px 100px;
+  animation: fadeIn 0.5s ease;
+}
+
+#hero-logado > h1 {
+  display: flex;
+  gap: 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#content-hero {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 5%;
+  flex-wrap: wrap;
+  
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-left > img {
+  width: 100%;
+  max-width: 100%;
+  padding: 50px 50px;
+  padding: 20px 40px;
+}
+
+.hero-left > a {
+  border: 1px solid var(--color-bg);
+  border-radius: 10px;
+  padding: 20px;
+
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  border: 1px solid var(--color-bg);
+  border-radius: 10px;
+  padding: 50px;
+  background-color: var(--color-primary);
+}
+
+.hero-right > h3 {
+  font-size: 50px;
+  color: var(--color-bg);
+}
+
+#hero-btn-ranking {
+  border: 1px solid var(--color-bg);
+  border-radius: 10px;
+
+  padding: 0 20px;
+  color: var(--color-primary);
+  background-color: var(--color-bg);
+
+  font-size: 20px;
+}
+
+
+/* Container dos 3 cards */
+#top3-container {
+  display: flex;
+  gap: 50px;
+  padding:10px 50px;
+
+}
+
+/* Card de cada participante */
+.top3-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 18px;
+  min-width: 50px;
+  border-radius: 12px;
+  cursor: pointer;
+
+  border: 1px solid var(--color-bg);
+}
+
+/* Cores de destaque por posição */
+.primeiro { background: var(--pri-lugar); }
+.segundo  { background: var(--seg-lugar); }
+.terceiro { background: var(--ter-lugar); }
+
+/* Foto do participante */
+.top3-foto {
+  width: 100%;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.jogos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.jogos > h2 {
+  padding: 50px;
+
+  font-size: 40px;
+  color: var(--color-primary);
+
+}
+
+#jogos-hoje {
+  width: 100%;
+  max-width: 900px;
+
+  padding: 30px;
+
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  border: 1px solid var(--color-primary);
+  border-radius: 20px;
+  
+
+}
+
+.jogo-times {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.jogo-times > .time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.jogo-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sobre {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.sobre > h2 {
+  font-size: 40px;
+  color: var(--color-primary);
+  padding: 50px;
+  padding: 20px;
+}
+
+.regras {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.regras > h2 {
+  display: flex;
+  font-size: 40px;
+  color: var(--color-primary);
+  padding: 30px;
+}
+
+.regras > table {
+  border: 1px solid var(--color-secondary);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.explicacao-pontos {
+  display: flex;
+  flex-direction: column;
+}
+
+.explicacao-pontos > h2 {
+  font-size: 40px;
+  padding: 30px;
+  color: var(--color-primary);
+
+  display: flex;
+  justify-content: center;
+}
+
+.explicacao-pontos > .regra-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.regra-item > h4 { 
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+.regras-palpites {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.regras-palpites > p {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 40px;
+
+  background: linear-gradient(to top, #603e11 75%, #ffffff);
+  color: var(--color-bg);
+}
+
+footer > .contato-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  padding: 100px;
+}
+
+footer > .conteudo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

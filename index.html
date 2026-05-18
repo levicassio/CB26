@@ -14,7 +14,7 @@
     <!--TIPOGRAFIA-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&family=Secular+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -58,19 +58,22 @@
                 <h1>Olá,<span id="hero-nome"></span></h1>
             </div>
 
-            <!--LADO ESQUERDO (imagem e palpite)-->
-            <div class="hero-left">
-                <img src="./src/assets/images/hero-image.png" alt="image-cb26-hero">
-                <a id="hero-btn-palpite" href="palpites.html">Fazer Palpite</a>
-            </div>
+            <div id="content-hero">
+                <!--LADO ESQUERDO (imagem e palpite)-->
+                <div class="hero-left">
+                    <img src="./src/assets/images/hero-image.png" alt="image-cb26-hero">
+                    <a id="hero-btn-palpite" href="palpites.html">Fazer Palpite</a>
+                </div>
 
-            <!--LADO DIREITO (top 3 e ranking)-->
-            <div class="hero-right">
-                <h3>Trio de Ferro</h3>
+                <!--LADO DIREITO (top 3 e ranking)-->
+                <div class="hero-right">
+                    <h3>Farmando Aura</h3>
 
-                <div id="top3-container"> <!--JS--> </div>
-                <a id="hero-btn-ranking" href="ranking.html">Ver Ranking</a>
+                    <div id="top3-container"> <!--JS--> </div>
+                    <a id="hero-btn-ranking" href="ranking.html">Ver Ranking</a>
+                </div>
             </div>
+            
         </section>
         
         <!--=====JOGOS===== (acabou o jogo > resultado, esta acontecendo > ao vivo, caso nao começou > horario resultado em branco ate começar - somente jogos no dia)-->
@@ -132,9 +135,10 @@
             </table>
 
             <!-- EXPLICAÇÕES -->
-            <h2>Como funciona a pontuação</h2>
 
             <div class="explicacao-pontos">
+
+                <h2>Como funciona a pontuação</h2>
 
                 <div class="regra-item">
                     <h4>5 pontos — Placar Exato</h4>
@@ -234,14 +238,14 @@
             </div>
 
             <!-- PRAZOS -->
-            <h2>Prazo dos Palpites</h2>
+            <h2>Palpites</h2>
 
             <div class="regras-palpites">
                 <p>
                 Os palpites poderão ser feitos até o início de cada jogo.
-                </p>
+                
 
-                <p>
+                
                 Exemplo:
                 Se a partida começa às 16h00,
                 os palpites encerram às 15h59.
@@ -255,9 +259,9 @@
                 <p>
                 Caso o jogo não seja palpitado a tempo,
                 o sistema manterá automaticamente o placar padrão de 0x0.
-                </p>
+                
 
-                <p>
+                
                 Dependendo do resultado real,
                 ainda será possível pontuar mesmo sem alterar o palpite.
                 </p>
@@ -265,32 +269,32 @@
                 <p>
                 Os jogos eliminatórios aparecerão automaticamente no site
                 assim que os confrontos forem oficialmente definidos.
-                </p>
+                
 
-                <p>
+                
                 Assim que estiverem disponíveis,
                 os palpites já poderão ser enviados.
                 </p>
 
                 <p>
                 Não esqueça de salvar cada palpite.
-                </p>
+                
 
-                <p>
+                
                 Mesmo após salvar,
                 será possível editar e salvar novamente até o horário do jogo.
                 </p>
 
                 <p>
-                Os palpites de gols vão de 0 até 15.
+                Os palpites de gols vão de 0 até 15 para cada seleção.
                 </p>
 
                 <p>
                 Caso uma seleção faça mais de 15 gols,
                 quem tiver colocado 15 para aquela seleção receberá o acerto daquele lado do placar.
-                </p>
+                
 
-                <p>
+                
                 A pontuação final dependerá do outro lado do placar,
                 podendo valer 5, 4, 3 ou 1 ponto.
                 </p>
@@ -318,6 +322,7 @@
     </footer>
     
     <!--=====MODAL=====-->
+
     <!--MODAL LOGIN-->
     <div id="modal-overlay"></div>
 
