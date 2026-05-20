@@ -253,7 +253,7 @@ async function carregarJogosDoDia() {
         </div>
         <div class="jogo-info">
           ${statusHTML}
-          <span class="jogo-fase">${jogo.fase} ${jogo.grupo ? '· Grupo ' + jogo.grupo : ''}</span>
+          <span class="jogo-fase">${jogo.fase} ${jogo.grupo ? '' + jogo.grupo : ''}</span>
         </div>
       </div>
     `
@@ -328,6 +328,7 @@ async function carregarTop3() {
 }
 
 
+
 // ============================================
 // INICIALIZA
 // ============================================
@@ -335,3 +336,4 @@ async function carregarTop3() {
 verificarLogin()
 carregarJogosDoDia()
 carregarTop3()
+

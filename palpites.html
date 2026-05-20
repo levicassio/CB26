@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopaBolão26</title>
+
+    <!--ICONE DA ABA-->
+    <link rel="icon" href="./src/assets/images/icone.png">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <!--TIPOGRAFIA-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <nav>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="ranking.html">Ranking</a>
+    </nav>
+
+    <a href="index.html">
+      <img src="./src/assets/images/icone.png" alt="logo">
+    </a>
+
+    <!-- VISITANTE -->
+    <div id="header-visitante">
+      <button id="btn-login">Fazer Login</button>
+    </div>
+
+    <!-- LOGADO -->
+    <div id="header-logado">
+      <img id="header-foto" alt="foto usuário">
+      <span id="header-nome"></span>
+      <button id="btn-logout">Sair</button>
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <section class="palpites-container">
+
+      <h1>Meus Palpites</h1>
+      <p>Palpite antes da partida começar.</p>
+    
+
+      <!-- JS RENDERIZA TUDO AQUI -->
+      <div id="lista-palpites"></div>
+
+    </section>
+
+  </main>
+
+  <!-- JS -->
+  <script type="module" src="./src/palpites.js"></script>
+
+</body>
+</html>

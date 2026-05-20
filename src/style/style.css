@@ -351,6 +351,7 @@ nav > a {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-content: space-around;
 }
 
 .jogo-info {
@@ -458,7 +459,232 @@ footer > .conteudo-footer {
 }
 
 
+/* ============================================
+   PALPITES
+   ============================================ */
 
+.palpites-container {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding: 50px 40px;
+}
+
+.palpites-container > h1 {
+  font-size: 42px;
+  color: var(--color-primary);
+  margin-bottom: 40px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.palpites-container > p {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+#lista-palpites {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* CARD */
+
+.palpite-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  border: 2px solid var(--color-primary);
+
+  transition: 0.3s;
+}
+
+.palpite-card.travado {
+  opacity: 0.75;
+}
+
+/* HEADER CARD */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-fase {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.card-status {
+  font-weight: bold;
+}
+
+/* TIMES */
+
+.card-times {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.card-time {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  min-width: 220px;
+}
+
+.time-nome {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.card-x {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* CONTROLES */
+
+.card-controle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.seta-cima,
+.seta-baixo {
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+
+  font-size: 20px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.seta-cima:hover,
+.seta-baixo:hover {
+  transform: scale(1.05);
+}
+
+.gols-display {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/* AÇÕES */
+
+.card-acoes {
+  display: none;
+  gap: 15px;
+}
+
+.btn-salvar,
+.btn-descartar {
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.btn-salvar {
+  background-color: white;
+  color: var(--color-primary);
+}
+
+.btn-descartar {
+  background-color: #d8d8d8;
+  color: black;
+}
+
+/* MSG */
+
+.msg-palpite {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* TRAVADO */
+
+.card-travado {
+  display: none;
+
+  position: absolute;
+  inset: 0;
+
+  background: rgba(255,255,255,0.15);
+
+  border-radius: 20px;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  backdrop-filter: blur(2px);
+}
+
+.palpite-card.travado .card-travado {
+  display: flex;
+}
+
+/* PRORROGAÇÃO */
+
+.card-prorroga {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* STATUS */
+
+.status-ao-vivo {
+  color: #8aff8a;
+}
+
+.status-finalizado {
+  color: #ffb0b0;
+}
+
+.status-horario {
+  color: white;
+}
 
 
 
