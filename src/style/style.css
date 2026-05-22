@@ -686,7 +686,132 @@ footer > .conteudo-footer {
   color: white;
 }
 
+/* ============================================
+   RANKING
+   ============================================ */
 
+.ranking-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 40px;
+}
+
+.ranking-container > h1 {
+  font-size: 42px;
+  color: var(--color-primary);
+  margin-bottom: 40px;
+}
+
+.ranking-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+}
+
+/* Cabeçalho */
+.ranking-tabela thead tr {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.ranking-tabela th {
+  padding: 16px 20px;
+  text-align: left;
+}
+
+/* Linhas */
+.ranking-linha {
+  border-bottom: 1px solid rgba(96, 62, 17, 0.15);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ranking-linha:hover {
+  background-color: rgba(96, 62, 17, 0.06);
+}
+
+.ranking-tabela td {
+  padding: 14px 20px;
+  font-size: 16px;
+  color: var(--color-primary);
+}
+
+/* Posição */
+.ranking-pos {
+  font-size: 22px;
+  font-weight: bold;
+  width: 60px;
+}
+
+/* Foto e nome */
+.ranking-usuario {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ranking-foto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ranking-nome {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+/* Badge você */
+.voce-badge {
+  font-size: 11px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* Pontos e acertos */
+.ranking-pontos {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.ranking-acertos {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* Destaques por posição */
+.pos-ouro {
+  background: linear-gradient(to right, rgba(212, 175, 55, 0.25), transparent);
+  border-left: 4px solid var(--pri-lugar);
+}
+
+.pos-prata {
+  background: linear-gradient(to right, rgba(191, 195, 201, 0.25), transparent);
+  border-left: 4px solid var(--seg-lugar);
+}
+
+.pos-bronze {
+  background: linear-gradient(to right, rgba(184, 115, 51, 0.25), transparent);
+  border-left: 4px solid var(--ter-lugar);
+}
+
+.pos-ultimo {
+  background: linear-gradient(to right, rgba(139, 30, 45, 0.15), transparent);
+  border-left: 4px solid var(--lan-lugar);
+}
+
+/* Usuário logado destacado */
+.pos-logado {
+  font-weight: 700;
+}
 
 
 
