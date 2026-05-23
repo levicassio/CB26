@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopaBolão26</title>
+
+    <!--ICONE DA ABA-->
+    <link rel="icon" href="./src/assets/images/icone.png">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <!--TIPOGRAFIA-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="./src/assets/images/icone.png" alt="logo-cb26-header">
+        </a>
+    </header>
+
+    <main>
+        <section class="confirmar-container">
+
+            <div class="confirmar-card">
+
+                <h1>Bem-vindo ao CopaBolão26!</h1>
+                <p>Sua conta foi confirmada. Agora escolha seu nome de usuário — ele aparecerá para todos no ranking.</p>
+
+                <div class="confirmar-form">
+                    <input
+                        id="input-username"
+                        type="text"
+                        placeholder="Seu nome de usuário"
+                        maxlength="20"
+                    >
+
+                    <p class="confirmar-aviso">
+                        ⚠️ Este nome não poderá ser alterado depois. Use apenas letras e underscore, entre 3 e 20 caracteres.
+                    </p>
+
+                    <span id="msg-username"></span>
+
+                    <button id="btn-confirmar-nome">Confirmar e entrar</button>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="./src/confirmar.js"></script>
+
+</body>
+</html>

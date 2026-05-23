@@ -977,6 +977,270 @@ footer > .conteudo-footer {
   opacity: 0.7;
 }
 
+/* ============================================
+   ADMIN
+   ============================================ */
+
+.admin-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.admin-container > h1 {
+  font-size: 42px;
+  color: var(--color-primary);
+}
+
+/* Seção */
+.admin-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.admin-secao > h2 {
+  font-size: 24px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Formulário */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-form input,
+.admin-form select {
+  padding: 12px 16px;
+  border: 2px solid var(--color-primary);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  outline: none;
+  transition: 0.2s;
+}
+
+.admin-form input:focus,
+.admin-form select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(96, 62, 17, 0.15);
+}
+
+.admin-check-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.admin-form button {
+  padding: 12px 24px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+  width: fit-content;
+}
+
+.admin-form button:hover {
+  opacity: 0.85;
+}
+
+/* Usuários */
+.admin-usuario-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px;
+  border: 1px solid rgba(96, 62, 17, 0.2);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-usuario-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-usuario-foto {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-usuario-nome {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.admin-usuario-acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-input-nome {
+  padding: 8px 12px;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "Quicksand", sans-serif;
+  color: var(--color-primary);
+  outline: none;
+}
+
+.admin-btn-alterar-nome {
+  padding: 8px 16px;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-btn-alterar-nome:hover {
+  opacity: 0.85;
+}
+
+.admin-btn-excluir {
+  padding: 8px 16px;
+  background: var(--lan-lugar);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.admin-btn-excluir:hover {
+  opacity: 0.85;
+}
+
+/* ============================================
+   CONFIRMAR
+   ============================================ */
+
+.confirmar-container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.confirmar-card {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-radius: 20px;
+  padding: 50px 40px;
+  max-width: 480px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.confirmar-card > h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.confirmar-card > p {
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.confirmar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.confirmar-form > input {
+  padding: 14px 16px;
+  border: 2px solid var(--color-bg);
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: "Quicksand", sans-serif;
+  background: rgba(255,255,255,0.15);
+  color: var(--color-bg);
+  outline: none;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.confirmar-form > input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.confirmar-form > input:focus {
+  background: rgba(255,255,255,0.25);
+}
+
+.confirmar-aviso {
+  font-size: 13px;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+#msg-username {
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 20px;
+}
+
+.confirmar-form > button {
+  padding: 14px;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-top: 8px;
+}
+
+.confirmar-form > button:hover {
+  opacity: 0.85;
+}
 
 
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopaBolão26</title>
+
+    <!--ICONE DA ABA-->
+    <link rel="icon" href="./src/assets/images/icone.png">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <!--TIPOGRAFIA-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!--=====HEADER=====-->
+    <header>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a id="link-palpitar"  href="palpites.html">Palpitar</a>
+            <a href="ranking.html">Ranking</a>
+        </nav>
+
+        <a href="index.html">
+            <img src="./src/assets/images/icone.png" alt="logo-cb26-header">
+        </a>
+
+        <!--VISITANTE-->
+        <div id="header-visitante">
+            <button id="btn-login">Fazer Login</button>
+        </div>
+
+        <!--LOGADO-->
+        <div id="header-logado">
+            <img id="header-foto" alt="foto do usuario">
+            <span id="header-nome"></span>
+            <button id="btn-logout">Sair</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="admin-container">
+
+            <h1>Painel Admin</h1>
+
+            <!-- CADASTRAR JOGO -->
+            <div class="admin-secao" id="secao-cadastrar-jogo">
+                <h2>Cadastrar Jogo</h2>
+
+                <div class="admin-form">
+                    <input id="admin-time-casa" type="text" placeholder="Time da casa">
+                    <input id="admin-time-fora" type="text" placeholder="Time de fora">
+                    <input id="admin-data-hora" type="datetime-local">
+
+                    <select id="admin-fase">
+                        <option value="grupos">Fase de Grupos</option>
+                        <option value="seg-fase">Segunda Fase</option>
+                        <option value="oitavas">Oitavas de Final</option>
+                        <option value="quartas">Quartas de Final</option>
+                        <option value="semi">Semifinal</option>
+                        <option value="terceiro">Disputa 3º lugar</option>
+                        <option value="final">Final</option>
+                    </select>
+
+                    <input id="admin-grupo" type="text" placeholder="Grupo (A, B, C...) — deixe vazio se eliminatório">
+
+                    <button id="admin-btn-salvar-jogo">Cadastrar Jogo</button>
+                    <span id="admin-msg-jogo"></span>
+                </div>
+            </div>
+
+            <!-- LANÇAR RESULTADO -->
+            <div class="admin-secao" id="secao-resultado">
+                <h2>Lançar Resultado</h2>
+
+                <div class="admin-form">
+                    <select id="admin-select-jogo">
+                        <option value="">Selecione um jogo</option>
+                    </select>
+
+                    <input id="admin-gols-casa" type="number" min="0" max="15" placeholder="Gols time da casa (final)">
+                    <input id="admin-gols-fora" type="number" min="0" max="15" placeholder="Gols time de fora (final)">
+                    <input id="admin-gols-casa-90min" type="number" min="0" max="15" placeholder="Gols time da casa (90min)">
+                    <input id="admin-gols-fora-90min" type="number" min="0" max="15" placeholder="Gols time de fora (90min)">
+
+                    <label class="admin-check-label">
+                        <input id="admin-foi-prorroga" type="checkbox">
+                        Foi para prorrogação
+                    </label>
+
+                    <select id="admin-status-jogo">
+                        <option value="aguardando">Aguardando</option>
+                        <option value="ao_vivo">Ao Vivo</option>
+                        <option value="finalizado">Finalizado</option>
+                    </select>
+
+                    <button id="admin-btn-resultado">Salvar Resultado</button>
+                    <span id="admin-msg-resultado"></span>
+                </div>
+            </div>
+
+            <!-- GESTÃO DE USUÁRIOS -->
+            <div class="admin-secao" id="secao-usuarios">
+                <h2>Gestão de Usuários</h2>
+                <div id="admin-lista-usuarios"></div>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="./src/admin.js"></script>
+
+</body>
+</html>
