@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CopaBolão26</title>
+
+    <!--ICONE DA ABA-->
+    <link rel="icon" href="./src/assets/images/icone.png">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="./src/style/style.css">
+
+    <!--TIPOGRAFIA-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html#sobre">Sobre</a>
+            <a id="link-palpitar"  href="palpites.html">Palpitar</a>
+            <a href="ranking.html">Ranking</a>
+        </nav>
+
+        <a href="index.html">
+            <img src="./src/assets/images/icone.png" alt="logo-cb26-header">
+        </a>
+
+        <!--VISITANTE-->
+        <div id="header-visitante">
+            <button id="btn-login">Fazer Login</button>
+        </div>
+
+        <!--LOGADO-->
+        <div id="header-logado">
+            <img id="header-foto" alt="foto do usuario">
+            <span id="header-nome"></span>
+            <button id="btn-logout">Sair</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="perfil-container">
+
+            <!-- JS preenche os dados aqui -->
+            <div id="perfil-dados"></div>
+
+            <!-- JS preenche o histórico aqui -->
+            <div id="perfil-historico"></div>
+
+        </section>
+    </main>
+
+    <script type="module" src="./src/perfil.js"></script>
+
+</body>
+</html>
