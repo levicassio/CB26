@@ -150,3 +150,6 @@ admin.html
 
 #scripts.sql -
 scripts.sql
+
+# Admin -
+admin.js

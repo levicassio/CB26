@@ -8,26 +8,6 @@
 #hero-visitante { display: none; }
 #hero-logado { display: none; }
 
-#modal-login {
-  display: none;
-  position: fixed;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  z-index: 101;
-
-  background: white;
-  padding: 32px;
-  border-radius: 12px;
-
-  flex-direction: column;
-  gap: 12px;
-
-  width: 90%;
-  max-width: 400px;
-}
 
 #modal-overlay {
   display: none;
@@ -1243,7 +1223,131 @@ footer > .conteudo-footer {
 }
 
 
+/* ============================================
+   MODAL DE LOGIN — ESTILO
+   ============================================ */
 
+#modal-login {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  flex-direction: column;
+  gap: 14px;
+  width: 90%;
+  max-width: 420px;
+
+  /* Visual */
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-radius: 20px;
+  padding: 36px 32px;
+}
+
+#modal-login h2 {
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+#input-email,
+#input-senha {
+  padding: 13px 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "Quicksand", sans-serif;
+  background: rgba(255,255,255,0.15);
+  color: var(--color-bg);
+  outline: none;
+  transition: 0.2s;
+  width: 100%;
+}
+
+#input-email::placeholder,
+#input-senha::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+#input-email:focus,
+#input-senha:focus {
+  border-color: var(--color-bg);
+  background: rgba(255,255,255,0.22);
+}
+
+#btn-entrar {
+  padding: 13px;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+}
+
+#btn-entrar:hover {
+  opacity: 0.88;
+}
+
+#btn-cadastrar {
+  padding: 11px;
+  background: transparent;
+  color: var(--color-bg);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%;
+}
+
+#btn-cadastrar:hover {
+  border-color: var(--color-bg);
+  background: rgba(255,255,255,0.1);
+}
+
+#msg-erro-login {
+  font-size: 13px;
+  color: #ffb0b0;
+  font-weight: 600;
+  min-height: 18px;
+}
+
+#msg-sucesso-login {
+  font-size: 13px;
+  color: #8aff8a;
+  font-weight: 600;
+  min-height: 18px;
+}
+
+/* Instruções de como entrar */
+.modal-instrucoes {
+  margin-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-instrucoes p {
+  font-size: 12px;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.modal-instrucoes strong {
+  opacity: 1;
+}
 
 
 
