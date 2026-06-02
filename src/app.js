@@ -47,6 +47,12 @@ async function verificarLogin() {
   if (user) {
     const { data: perfil } = await getPerfil(user.id)
 
+    // Se não tem perfil — redireciona para criar o nome
+    if (!perfil) {
+      window.location.href = 'confirmar.html'
+      return
+    }
+
     document.getElementById('header-logado').style.display = 'flex'
     document.getElementById('header-visitante').style.display = 'none'
     document.getElementById('hero-logado').style.display = 'block'

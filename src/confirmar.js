@@ -6,16 +6,29 @@
 import { supabase, getUsuarioAtual, criarPerfil, usernameDisponivel } from './supabase.js'
 
 
-// ============================================
-// BLOCO 1 — VERIFICA SE JÁ TEM PERFIL
-// Se já tem perfil vai direto para o index
-// ============================================
-
 async function verificarPerfil() {
 
-  const user = await getUsuarioAtual()
+  // Aguarda a sessão ser estabelecida pelo Supabase
+  // O link do email traz um token que precisa ser processado
+  const { data: { session } } = await supabase.auth.getSession()
 
-  // Não está logado — vai para index
+  let user = session?.user
+
+  // Se não tiver sessão ainda aguarda o evento
+  if (!user) {
+    await new Promise((resolve) => {
+      supabase.auth.onAuthStateChange((event, session) => {
+        if (session?.user) {
+          user = session.user
+          resolve()
+        }
+      })
+
+      
+    })
+  }
+
+  // Ainda sem usuário — vai para index
   if (!user) {
     window.location.href = 'index.html'
     return
@@ -26,7 +39,7 @@ async function verificarPerfil() {
     .from('usuarios')
     .select('id')
     .eq('id', user.id)
-    .single()
+    .maybeSingle()
 
   // Já tem perfil — vai para index
   if (perfil) {
@@ -34,7 +47,7 @@ async function verificarPerfil() {
     return
   }
 
-  // Não tem perfil — inicializa o formulário
+  // Não tem perfil — mostra o formulário
   iniciarFormulario(user)
 }
 
