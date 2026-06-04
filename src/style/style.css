@@ -1574,6 +1574,59 @@ footer > .conteudo-footer {
 
 }
 
+/* Card de palpite — times em linha mesmo no mobile */
+  .palpite-card {
+    padding: 16px;
+  }
+
+  .card-times {
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: space-between;
+  }
+
+  .card-time {
+    min-width: unset;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .card-time.direita {
+    align-items: center;
+  }
+
+  .time-nome {
+    font-size: 13px;
+    word-break: break-word;
+  }
+
+  .bandeira {
+    width: 36px;
+  }
+
+  .card-controle {
+    flex-shrink: 0;
+  }
+
+  .gols-display {
+    font-size: 22px;
+  }
+
+  .seta-cima,
+  .seta-baixo {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .card-x {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
 @media (max-width: 480px) {
 
   /* Header mais compacto */
@@ -1606,6 +1659,25 @@ footer > .conteudo-footer {
   /* Modal de login */
   #modal-login {
     padding: 24px 20px;
+  }
+
+  .time-nome {
+    font-size: 11px;
+  }
+
+  .bandeira {
+    width: 28px;
+  }
+
+  .seta-cima,
+  .seta-baixo {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .gols-display {
+    font-size: 20px;
   }
 }
 
