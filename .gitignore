@@ -142,8 +142,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 
-# Supabase — 
-src/supabase.js
+
 
 # Admin — 
 admin.html
