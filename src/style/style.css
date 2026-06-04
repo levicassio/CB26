@@ -1350,7 +1350,264 @@ footer > .conteudo-footer {
 }
 
 
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
 
+@media (max-width: 900px) {
+
+  /* HEADER */
+  header {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 12px 4%;
+    gap: 12px;
+  }
+
+  header > nav {
+    gap: 16px;
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  nav > a {
+    font-size: 16px;
+  }
+
+  #btn-login {
+    font-size: 15px;
+    padding: 8px 16px;
+  }
+
+  /* HERO */
+  #hero-visitante,
+  #hero-logado {
+    font-size: 26px;
+    height: auto;
+    padding: 20px 24px;
+  }
+
+  #content-hero {
+    flex-direction: column;
+    padding: 20px 24px;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .hero-left {
+    width: 100%;
+  }
+
+  .hero-left > img {
+    padding: 10px 20px;
+  }
+
+  .hero-right {
+    width: 100%;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .hero-right > h3 {
+    font-size: 28px;
+  }
+
+  #top3-container {
+    gap: 16px;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .top3-card {
+    padding: 14px;
+    min-width: 80px;
+  }
+
+  /* JOGOS DO DIA */
+  #jogos-hoje {
+    padding: 16px;
+  }
+
+  .jogo-times {
+    gap: 16px;
+  }
+
+  .jogo-times > .time {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  /* PALPITES */
+  .palpites-container {
+    padding: 24px 16px;
+  }
+
+  .palpites-container > h1 {
+    font-size: 28px;
+  }
+
+  .card-times {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card-time {
+    min-width: unset;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .time-nome {
+    font-size: 16px;
+  }
+
+  .gols-display {
+    font-size: 26px;
+  }
+
+  .seta-cima,
+  .seta-baixo {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  /* RANKING */
+  .ranking-container {
+    padding: 24px 16px;
+  }
+
+  .ranking-container > h1 {
+    font-size: 28px;
+  }
+
+  .ranking-tabela th,
+  .ranking-tabela td {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .ranking-foto {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* PERFIL */
+  .perfil-container {
+    padding: 24px 16px;
+  }
+
+  .perfil-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .perfil-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .btn-ir-palpites {
+    align-self: center;
+  }
+
+  .historico-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  /* ADMIN */
+  .admin-container {
+    padding: 24px 16px;
+  }
+
+  .admin-usuario-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-usuario-acoes {
+    width: 100%;
+  }
+
+  .admin-input-nome {
+    width: 100%;
+  }
+
+  /* FOOTER */
+  footer > .contato-footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px 20px;
+  }
+
+  footer > .conteudo-footer {
+    padding: 0 20px 20px;
+  }
+
+  /* SOBRE E REGRAS */
+  .sobre {
+    padding: 30px 20px;
+  }
+
+  .regras > h2 {
+    font-size: 28px;
+    padding: 20px;
+  }
+
+  .explicacao-pontos > h2 {
+    font-size: 28px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  /* Header mais compacto */
+  header > nav {
+    gap: 12px;
+  }
+
+  nav > a {
+    font-size: 14px;
+  }
+
+  /* Hero menor */
+  #hero-visitante,
+  #hero-logado {
+    font-size: 22px;
+  }
+
+  /* Ranking — esconde coluna de acertos exatos em telas pequenas */
+  .ranking-tabela th:last-child,
+  .ranking-tabela td:last-child {
+    display: none;
+  }
+
+  /* Top 3 em coluna */
+  #top3-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Modal de login */
+  #modal-login {
+    padding: 24px 20px;
+  }
+}
 
 
 
