@@ -5,12 +5,10 @@
 
 import { supabase, getUsuarioAtual, getPerfil, logout, getJogos, recalcularJogo } from './supabase.js'
 
-const ADMIN_EMAIL = 'levicassio@outlook.com.br'
-
-
 // ============================================
 // BLOCO 1 — PROTEÇÃO DE ACESSO
-// Só o admin pode acessar essa página
+// Verifica se o usuário tem is_admin = true no banco
+// Email do admin não fica mais exposto no código
 // ============================================
 
 async function verificarAdmin() {
@@ -23,8 +21,10 @@ async function verificarAdmin() {
     return null
   }
 
-  // Está logado mas não é admin — vai para index
-  if (user.email !== ADMIN_EMAIL) {
+  // Busca o perfil e verifica is_admin
+  const { data: perfil } = await getPerfil(user.id)
+
+  if (!perfil || !perfil.is_admin) {
     window.location.href = 'index.html'
     return null
   }
