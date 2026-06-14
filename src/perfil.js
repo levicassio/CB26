@@ -228,7 +228,6 @@ async function carregarPerfil() {
   const finalizados = palpites
     .filter(p => p.jogos?.status === 'finalizado')
     .sort((a, b) => new Date(b.jogos.data_hora) - new Date(a.jogos.data_hora))
-    .slice(0, 5)
 
   if (finalizados.length === 0) {
     document.getElementById('perfil-historico').innerHTML =
@@ -237,7 +236,7 @@ async function carregarPerfil() {
   }
 
   document.getElementById('perfil-historico').innerHTML = `
-    <h2 class="historico-titulo">Últimos jogos</h2>
+    <h2 class="historico-titulo">Historico</h2>
     <div class="historico-lista">
       ${finalizados.map(p => {
 
