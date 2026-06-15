@@ -1,27 +1,22 @@
 // ============================================
 // ADMIN.JS — ADMIN.HTML
-// Acesso restrito ao email do administrador
 // ============================================
 
 import { supabase, getUsuarioAtual, getPerfil, logout, getJogos, recalcularJogo } from './supabase.js'
 
 // ============================================
 // BLOCO 1 — PROTEÇÃO DE ACESSO
-// Verifica se o usuário tem is_admin = true no banco
-// Email do admin não fica mais exposto no código
 // ============================================
 
 async function verificarAdmin() {
 
   const user = await getUsuarioAtual()
 
-  // Não está logado — vai para index
   if (!user) {
     window.location.href = 'index.html'
     return null
   }
 
-  // Busca o perfil e verifica is_admin
   const { data: perfil } = await getPerfil(user.id)
 
   if (!perfil || !perfil.is_admin) {
@@ -77,7 +72,6 @@ function iniciarCadastrarJogo() {
 
       msg.textContent = ''
 
-      // Validação básica
       if (!timeCasa || !timeFora || !dataHora || !fase) {
         msg.textContent = 'Preencha todos os campos obrigatórios.'
         msg.style.color = 'red'
@@ -104,13 +98,11 @@ function iniciarCadastrarJogo() {
       msg.textContent = '✓ Jogo cadastrado com sucesso!'
       msg.style.color = 'green'
 
-      // Limpa os campos
       document.getElementById('admin-time-casa').value = ''
       document.getElementById('admin-time-fora').value = ''
       document.getElementById('admin-data-hora').value = ''
       document.getElementById('admin-grupo').value = ''
 
-      // Atualiza a lista de jogos no select de resultado
       carregarJogosNoSelect()
     })
 }
@@ -129,7 +121,6 @@ async function carregarJogosNoSelect() {
 
   if (!jogos) return
 
-  // Mostra só jogos não finalizados
   const jogosAtivos = jogos.filter(j => j.status !== 'finalizado')
 
   jogosAtivos.forEach(jogo => {
@@ -193,8 +184,43 @@ function iniciarLancarResultado() {
         return
       }
 
-      // Se finalizou — recalcula pontos de todos os palpites
       if (status === 'finalizado') {
+
+        msg.textContent = 'Criando palpites automáticos...'
+        msg.style.color = 'orange'
+
+        // Busca todos os usuários exceto admin
+        const { data: usuarios } = await supabase
+          .from('usuarios')
+          .select('id')
+          .eq('is_admin', false)
+
+        if (usuarios && usuarios.length > 0) {
+          for (const usuario of usuarios) {
+
+            // Verifica se já tem palpite
+            const { data: palpiteExistente } = await supabase
+              .from('palpites')
+              .select('id')
+              .eq('usuario_id', usuario.id)
+              .eq('jogo_id', jogoId)
+              .maybeSingle()
+
+            // Se não tem — cria 0x0
+            if (!palpiteExistente) {
+              await supabase
+                .from('palpites')
+                .insert({
+                  usuario_id: usuario.id,
+                  jogo_id: jogoId,
+                  gols_casa: 0,
+                  gols_fora: 0,
+                  prorrogacao: false
+                })
+            }
+          }
+        }
+
         msg.textContent = 'Recalculando pontos...'
         msg.style.color = 'orange'
 
@@ -209,7 +235,6 @@ function iniciarLancarResultado() {
         msg.textContent = '✓ Resultado salvo e pontos recalculados!'
         msg.style.color = 'green'
 
-        // Remove o jogo do select
         carregarJogosNoSelect()
 
       } else {
@@ -280,14 +305,12 @@ async function carregarUsuarios() {
   `).join('')
 }
 
-// Altera o nome de um usuário
 window.alterarNome = async function(usuarioId) {
 
   const novoNome = document.getElementById(`input-nome-${usuarioId}`).value.trim()
 
   if (!novoNome) return
 
-  // Valida o formato do nome
   const regex = /^[a-zA-ZÀ-ú_]{3,20}$/
   if (!regex.test(novoNome)) {
     alert('Nome inválido. Use apenas letras e underscore, entre 3 e 20 caracteres.')
@@ -308,22 +331,15 @@ window.alterarNome = async function(usuarioId) {
   carregarUsuarios()
 }
 
-// Exclui um usuário
 window.excluirUsuario = async function(usuarioId) {
 
   const confirmar = confirm('Tem certeza que deseja excluir este usuário? Esta ação não pode ser desfeita.')
   if (!confirmar) return
 
-  // Remove do ranking
   await supabase.from('ranking').delete().eq('usuario_id', usuarioId)
-
-  // Remove os palpites
   await supabase.from('palpites').delete().eq('usuario_id', usuarioId)
-
-  // Remove o perfil
   await supabase.from('usuarios').delete().eq('id', usuarioId)
 
-  // Remove da autenticação — requer service role, então avisa
   alert('Usuário removido do sistema. Para remover completamente da autenticação, delete no painel do Supabase em Authentication → Users.')
 
   carregarUsuarios()

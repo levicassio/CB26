@@ -165,7 +165,8 @@ export async function salvarPalpite(usuarioId, jogoId, golsCasa, golsFora, prorr
 export async function getRanking() {
   const { data, error } = await supabase
     .from('ranking')
-    .select('*, usuarios(username, foto_url)')
+    .select('*, usuarios!inner(username, foto_url, is_admin)')
+    .eq('usuarios.is_admin', false)
     .order('total_pontos', { ascending: false })
     .order('acertos_exatos', { ascending: false })
   return { data, error }
