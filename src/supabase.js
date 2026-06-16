@@ -175,72 +175,50 @@ export async function getRanking() {
 // ============================================
 // PONTUAÇÃO
 // ============================================
-
-// Calcula os pontos de um palpite comparando com o resultado real
-// Recebe o palpite do usuário e o resultado oficial do jogo
-// Retorna um número: 0, 1, 3, 4 ou 5
 export function calcularPontos(palpite, resultado) {
 
   const palCasa = palpite.gols_casa
   const palFora = palpite.gols_fora
 
-  // ── Define qual resultado usar para comparação ──
-  // Se o jogo foi para prorrogação e o usuário NÃO marcou a caixinha
-  // compara com os 90 minutos — o usuário optou por não apostar além
-  // Em todos os outros casos compara com o resultado final
   let resCasa, resFora
 
   if (resultado.foi_prorrogacao && !palpite.prorrogacao) {
-    // Usuário não quis apostar na prorrogação
-    // Usa o placar dos 90 minutos para ser justo com ele
     resCasa = resultado.gols_casa_90min
     resFora = resultado.gols_fora_90min
   } else {
-    // Jogo não foi para prorrogação — usa resultado final
-    // Ou jogo foi para prorrogação e usuário marcou a caixinha
     resCasa = resultado.gols_casa
     resFora = resultado.gols_fora
   }
 
-  // ── Determina o vencedor do palpite ──
-  // 'casa' = time da casa venceu no palpite
-  // 'fora' = time de fora venceu no palpite
-  // 'empate' = empate no palpite
+  // Determina vencedor do palpite
   const vencedorPalpite =
     palCasa > palFora ? 'casa' :
     palCasa < palFora ? 'fora' : 'empate'
 
-  // ── Determina o vencedor real ──
-  // Baseado no resultado escolhido acima (90min ou final)
+  // Determina vencedor real
   const vencedorReal =
     resCasa > resFora ? 'casa' :
     resCasa < resFora ? 'fora' : 'empate'
 
-  // ── 5 pontos: placar exato ──
-  // Acertou os dois placares exatamente
+  // 5 pontos — placar exato
   if (palCasa === resCasa && palFora === resFora) return 5
 
-  // ── 4 pontos: acertou vencedor + gols de um time ──
-  // Acertou quem ganhou e a quantidade de gols de pelo menos um time
+  // 3 pontos — acertou empate mas não o placar exato
+  // Verifica ANTES das outras condições para não ser sobrescrito
+  if (vencedorPalpite === 'empate' && vencedorReal === 'empate') return 3
+
+  // 4 pontos — acertou vencedor + gols de um time
   if (vencedorPalpite === vencedorReal) {
     if (palCasa === resCasa || palFora === resFora) return 4
   }
 
-  // ── 3 pontos: acertou só o vencedor ──
-  // Sabia quem ia ganhar mas errou os placares
+  // 3 pontos — acertou só o vencedor
   if (vencedorPalpite === vencedorReal) return 3
 
-  // ── 3 pontos: acertou empate mas não o placar exato ──
-  // Sabia que ia empatar mas errou os números
-  // Placar exato de empate já foi tratado acima com 5 pontos
-  if (vencedorPalpite === 'empate' && vencedorReal === 'empate') return 3
-
-  // ── 1 ponto: acertou gols de um time mas errou o vencedor ──
-  // Não sabia quem ia ganhar mas acertou
-  // a quantidade de gols de um dos times
+  // 1 ponto — acertou gols de um time mas errou o vencedor
   if (palCasa === resCasa || palFora === resFora) return 1
 
-  // ── 0 pontos: errou tudo ──
+  // 0 pontos — errou tudo
   return 0
 }
 
