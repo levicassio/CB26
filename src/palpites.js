@@ -131,7 +131,7 @@ async function carregarPalpites(user) {
       : jogo.fase.toUpperCase()
 
     // Checkbox de prorrogação — só em eliminatórios
-    const fasesEliminatorias = ['oitavas', 'quartas', 'semi', 'terceiro', 'final']
+    const fasesEliminatorias = [ 'seg-fase', 'oitavas', 'quartas', 'semi', 'terceiro', 'final']
     const ehEliminatorio = fasesEliminatorias.includes(jogo.fase)
 
     const prorrogacaoHTML = ehEliminatorio ? `
