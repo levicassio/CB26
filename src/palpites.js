@@ -145,8 +145,8 @@ async function carregarPalpites(user) {
         <label for="check-prorroga-${jogo.id}">Vai para prorrogação</label>
         <span
           class="tooltip-prorroga"
-          title="Se marcado, seu palpite vale até o fim da prorrogação. Se não marcado, vale apenas os 90 minutos."
-        >?</span>
+          onclick="alert('Se marcado, seu palpite vale até o fim da prorrogação. Se não marcado, vale apenas os 90 minutos.')"
+        >!</span>
       </div>
     ` : ''
 
