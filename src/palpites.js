@@ -77,9 +77,30 @@ async function carregarPalpites(user) {
 
   const lista = document.getElementById('lista-palpites')
 
-  // Busca todos os jogos ordenados por data
   const { data: jogos, error: erroJogos } = await getJogos()
   if (erroJogos || !jogos) return
+
+  // Ordena: jogos não finalizados primeiro (por data crescente)
+  // depois jogos finalizados (por data decrescente — mais recente primeiro)
+  jogos.sort((a, b) => {
+    const aFinalizado = a.status === 'finalizado'
+    const bFinalizado = b.status === 'finalizado'
+
+    // Um finalizado e outro não — o não finalizado vem primeiro
+    if (aFinalizado !== bFinalizado) {
+      return aFinalizado ? 1 : -1
+    }
+
+    // Os dois são finalizados — ordena do mais recente para o mais antigo
+    if (aFinalizado && bFinalizado) {
+      return new Date(b.data_hora) - new Date(a.data_hora)
+    }
+
+    // Os dois não são finalizados — ordena por data crescente (próximo jogo primeiro)
+    return new Date(a.data_hora) - new Date(b.data_hora)
+  })
+
+  
 
   // Busca palpites já salvos do usuário
   const { data: palpites } = await getPalpites(user.id)
